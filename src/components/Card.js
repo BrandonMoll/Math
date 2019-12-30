@@ -1,18 +1,28 @@
 import React, {Component} from 'react';
+import {withRouter} from 'react-router-dom';
 import '../App.css';
 
-export default class Card extends Component {
+class Card extends Component {
     constructor(props) {
         super(props);
         this.state = {
             num1: 0,
             num2: 0,
-            input: ''
+            input: '',
+            operator: ''
         }
     }
 
     componentDidMount() {
         this.randomNumber();
+        switch(localStorage.getItem('operator')) {
+            case 'Addition':
+                this.setState({operator: '+'})
+                break;
+            case 'Multiplication':
+                this.setState({operator: 'x'})
+                break;
+        }
     }
 
     inputHandler = (e) => {
@@ -28,20 +38,27 @@ export default class Card extends Component {
 
     validateMath = (num1, num2) => {
         let userAnswer = parseInt(this.state.input);
-        let correctAnswer = num1 * num2;
+        let correctAnswer;
+        switch(this.state.operator) {
+            case '+':
+                correctAnswer = num1 + num2;
+                break;
+            case 'x':
+                correctAnswer = num1 * num2;
+                break;
+        }
         if(userAnswer === correctAnswer) {
             alert('Correct!')
         } else {
             alert('Incorrect!')
         }
-        
     }
 
     render() {
         return (
             <div className='cardContainer'>
                 <div className='card'>
-                    {this.state.num1} X {this.state.num2}
+                    {this.state.num1} {this.state.operator} {this.state.num2}
                 </div>
                 <form className='form'>
                     <input 
@@ -59,3 +76,5 @@ export default class Card extends Component {
         )
     }
 }
+
+export default withRouter(Card)

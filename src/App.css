@@ -8,9 +8,31 @@
   font-size: 1.6rem;
 }
 
-.headerContainer {
+.menuContainer {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 100%
+}
+
+.menuOption {
+  text-decoration: none;
+  color: black;
   display: flex;
   justify-content: center;
+  align-items: center;
+  width: 50%;
+  height: 50px;
+  font-size: 3.6rem;
+  background-color: #eb348c;
+  border: 2px solid black;
+  border-radius: 10px;
+  margin-top: 10px;
+}
+
+.headerContainer {
+  display: flex;
   align-items: center;
   height: 50px;
   background-color: black;
@@ -18,7 +40,17 @@
 }
 
 .header {
-  font-size: 3.6rem;
+  align-self: center;
+  margin-left: 33%;
+  font-size: 3.0rem;
+  color: white;
+}
+
+.menuLink {
+  text-decoration: none;
+  align-self: center;
+  margin-left: 5px;
+  font-size: 2rem;
   color: white;
 }
 
@@ -44,7 +76,7 @@
 .input {
   margin: 10% 0;
   height: 80px;
-  width: 120px;
+  width: 135px;
   display: block;
   font-size: 5.6rem;
   text-align: center;

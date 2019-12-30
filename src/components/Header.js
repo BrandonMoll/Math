@@ -1,7 +1,8 @@
 import React, {Component} from 'react';
+import {Link, withRouter} from 'react-router-dom';
 import '../App.css';
 
-export default class Header extends Component {
+class Header extends Component {
     constructor(props) {
         super(props);
         this.state = {
@@ -12,10 +13,12 @@ export default class Header extends Component {
     render() {
         return (
             <div className='headerContainer'>
-                <div className='header'>
-                    Maddie's Math Game!
-                </div>
+                {this.props.location.pathname === '/' ? 
+                <div className='header'>Maddie and Gabby's Math Game!</div> :
+                <Link to='/' className='menuLink'>Menu</Link>}
             </div>
         )
     }
 }
+
+export default withRouter(Header)
