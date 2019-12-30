@@ -51,7 +51,8 @@ export default class Card extends Component {
                         onChange={this.inputHandler}
                         autoComplete='off'
                         autoFocus
-                        type='text'/>
+                        type='text'
+                        inputMode='numeric'/>
                     <button onClick={() => this.validateMath(this.state.num1, this.state.num2)}>Submit</button>
                 </form>
             </div>
